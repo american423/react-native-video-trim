@@ -25,7 +25,7 @@ export interface EditorConfig {
 export async function showEditor(
   videoPath: string,
   config: EditorConfig = {}
-): Promise<void> {
+): Promise<any> {
   const { maxDuration, saveToPhoto = true } = config;
   const outputPath = await VideoTrim.showEditor(videoPath, {
     saveToPhoto,
@@ -54,6 +54,7 @@ export async function showEditor(
       throw err;
     }
   }
+  return outputPath;
 }
 
 export function isValidVideo(videoPath: string): Promise<boolean> {
